@@ -512,10 +512,8 @@ static void print_ref_status(char flag, const char *summary,
 		}
 		fputc('\n', stderr);
 	}
-	if (from_name)
-		free(from_name);
-	if (to_name)
-		free(to_name);
+	free(from_name);
+	free(to_name);
 }
 
 static void print_ok_ref_status(struct ref *ref, int porcelain, int summary_width)

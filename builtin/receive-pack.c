@@ -928,13 +928,13 @@ static int read_proc_receive_report(struct packet_reader *reader,
 		}
 		if (reader->pktlen > len)
 			strbuf_addstr(&extended_status, (char *)reader->line + len + 1);
-		if (oidcmp(&hint->old_oid, &old_oid)) {
+		if (!oideq(&hint->old_oid, &old_oid)) {
 			oidcpy(&hint->old_oid, &old_oid);
 			strbuf_addf(&extended_status, "%sold-oid=%s",
 				    extended_status.len > 0 ? " ": "",
 				    oid_to_hex(&old_oid));
 		}
-		if (oidcmp(&hint->new_oid, &new_oid)) {
+		if (!oideq(&hint->new_oid, &new_oid)) {
 			oidcpy(&hint->new_oid, &new_oid);
 			strbuf_addf(&extended_status, "%snew-oid=%s",
 				    extended_status.len > 0 ? " ": "",
