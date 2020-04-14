@@ -1488,7 +1488,7 @@ static int fall_back_threeway(const struct am_state *state, const char *index_pa
 	if (write_index_as_tree(&orig_tree, &the_index, index_path, 0, NULL))
 		return error(_("Repository lacks necessary blobs to fall back on 3-way merge."));
 
-	say(state, stdout, _("Using index info to reconstruct a base tree..."));
+	say(state, stdout, _("Using index info to reconstruct a base tree…"));
 
 	if (!state->quiet) {
 		/*
@@ -1513,7 +1513,7 @@ static int fall_back_threeway(const struct am_state *state, const char *index_pa
 	if (write_index_as_tree(&their_tree, &the_index, index_path, 0, NULL))
 		return error("could not write tree");
 
-	say(state, stdout, _("Falling back to patching base and 3-way merge..."));
+	say(state, stdout, _("Falling back to patching base and 3-way merge…"));
 
 	discard_cache();
 	read_cache();
